@@ -21,12 +21,26 @@ public class Circuit {
         return nombreTour;
     }
 
-    public void addCar(Car car) {
+    public void ajouterCar(Car car) {
         cars.add(car);
     }
 
-    public void simulateCars(){
+    public void lancerCourse() {
+        for (Car voiture : cars) {
+            for (int i = 0; i < nombreTour; i++) {
+                voiture.tempsTour(distanceTour);
+            }
+        }
+    }
 
+    public void trouverGagnant() {
+        Car gagnant = cars.get(0);
+        for (Car voiture : cars) {
+            if (voiture.getTempsTotal() < gagnant.getTempsTotal()) {
+                gagnant = voiture;
+            }
+        }
+        System.out.println("La voiture gagnante est " + gagnant.getModele() + " de " + gagnant.getMarque() + " avec un temps total de " + gagnant.getTempsTotal() + " secondes.");
     }
 
 

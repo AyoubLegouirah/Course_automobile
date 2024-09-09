@@ -42,9 +42,11 @@ public class Car  {
 
     public void tempsTour(int distanceTour) {
         int vitesse = vitAleatoire();
-        int temps = (distanceTour/vitesse) * 3600;
-        this.tempsTotal = tempsTotal + temps;
+        double temps = ((double) distanceTour / vitesse) * 3600;
+        this.tempsTotal += temps;
     }
+
+
 
 
 
